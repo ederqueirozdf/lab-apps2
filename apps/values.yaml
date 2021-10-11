@@ -9,6 +9,11 @@ clusterK8s:
 argocd:
   namespace: argocd-2
   disablePrune: false
+
+# #####################################################################
+# APLICs
+# #####################################################################
+
   apps:
     - name: "guestbook2"
       finalizers: []
@@ -36,27 +41,31 @@ argocd:
             selfHeal: true
 
 # #####################################################################
-# # ------- THANOS 
+# MONITOR
 # #####################################################################
 
-#     - name: "thanos"
-#       finalizers: []
-#       labels: []
-#         # - key: chave
-#         #   value: valor
-#       annotations: []
-#         # - key: chave
-#         #   value: valor
-#       spec:
-#         project: k8s-lab
-#         source:
-#           path: thanos
-#           repoURL: https://github.com/ederqueirozdf/lab-apps2.git
-#           targetRevision: HEAD
-#         destination:
-#         #   namespace: infra
-#           server: https://kubernetes.default.svc
-#         # syncPolicy:
-#         #   automated:
-#         #     prune: true
-#         #     selfHeal: true        
+  apps:
+    - name: "thanos"
+      finalizers: []
+      labels: []
+        # - key: chave
+        #   value: valor
+      annotations: []
+        # - key: chave
+        #   value: valor
+      spec:
+        project: k8s-lab
+        source:
+          path: aplic/thanos
+          repoURL: https://github.com/ederqueirozdf/lab-apps2.git
+          targetRevision: HEAD
+          helm:
+            valueFiles:
+              - values.yaml          
+        destination:
+          namespace: thanos
+          server: https://kubernetes.default.svc
+        syncPolicy:
+          automated:
+            prune: true
+            selfHeal: true
