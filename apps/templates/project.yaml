@@ -4,7 +4,7 @@ metadata:
   name: {{ .Values.clusterK8s.name }}
   namespace: {{ .Values.argocd.namespace }}
   annotations: 
-    cluster.repo/git: {{ $.Values.appsK8s.source }}
+    cluster.repo/git: {{ $.Values.clusterK8s.source }}
     cluster.server/name: {{ $.Values.clusterK8s.name }}
     argocd.argoproj.io/hook: PreSync
   labels: 
