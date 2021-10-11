@@ -11,7 +11,7 @@ metadata:
   name: {{ $fullName }}
 spec:
   rules:
-  - host: guestbook.local
+  - host: guestbook2.local
     http:
       paths:
       - pathType: Prefix
