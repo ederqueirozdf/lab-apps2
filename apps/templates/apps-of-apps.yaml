@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: List
+items:
+{{- range .Values.argocd.apps }}
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    name: {{ $.Values.cluster.name }}
+    namespace: {{ $.Values.argocd.namespace }}
+{{- if .finalizers }}
+    finalizers:
+  {{- range .finalizers }}
+    - {{ . -}}
+  {{ end }}
+{{- end }}
+    annotations: 
+      cluster.repo/git: {{ $.Values.source.repoURL | quote }}
+      cluster.server/name: {{ $.Values.cluster.name | quote }}
+{{- if $.Values.argocd.disablePrune }}
+      argocd.argoproj.io/sync-options: Prune=false
+{{- end }}
+{{- if .annotations }}
+  {{- range .annotations }}
+      {{ .key }}: {{ .value -}}
+  {{ end }}
+{{- end }}
+    labels: 
+      cluster.server/name: {{ $.Values.cluster.name }}
+{{- if .labels }}
+  {{- range .labels }}
+      {{ .key }}: {{ .value -}}
+  {{ end }}
+{{- end }}
+  spec:
+{{ toYaml .spec | indent 4 }}
+{{- end }}
