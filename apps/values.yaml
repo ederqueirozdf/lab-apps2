@@ -1,5 +1,5 @@
 appsK8s:
-  name: "teste"
+  name: "in-cluster"
   clusterserver: https://kubernetes.default.svc
 
 argocd:
