@@ -15,7 +15,7 @@ argocd:
 # #####################################################################
 
   apps:
-      name: "guestbook2"
+    - name: "guestbook2"
       finalizers: []
       labels: []
         # - key: chave
@@ -45,7 +45,7 @@ argocd:
 # #####################################################################
 
   apps:
-      name: "guestbook2"
+    - name: "guestbook2"
       finalizers: []
       labels: []
         # - key: chave
