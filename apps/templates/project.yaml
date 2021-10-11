@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: {{ .Values.clusterK8s.name }}
+  namespace: {{ .Values.argocd.namespace }}
+  annotations: 
+    cluster.repo/git: {{ $.Values.appsK8s.source }}
+    cluster.server/name: {{ $.Values.clusterK8s.name }}
+    argocd.argoproj.io/hook: PreSync
+  labels: 
+      cluster.server/name: {{ $.Values.clusterK8s.name }}
+spec:
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  description: Deploy apps {{ .Values.clusterK8s.name }}
+  destinations:
+  - namespace: '*'
+    server: {{ .Values.clusterK8s.server | quote }}
+  sourceRepos:
+  - {{ .Values.clusterK8s.source | quote }}
