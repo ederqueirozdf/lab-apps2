@@ -1,8 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: {{ .Values.clusterK8s.name }}
-  namespace: {{ .Values.argocd.namespace }}
+  name: {{ $.Values.clusterK8s.name }}
+  namespace: {{ $.Values.argocd.namespace }}
   annotations: 
     cluster.repo/git: {{ $.Values.clusterK8s.source }}
     cluster.server/name: {{ $.Values.clusterK8s.name }}
@@ -13,9 +13,9 @@ spec:
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
-  description: Deploy apps {{ .Values.clusterK8s.name }}
+  description: Deploy apps {{ $.Values.clusterK8s.name }}
   destinations:
   - namespace: '*'
-    server: {{ .Values.clusterK8s.server | quote }}
+    server: {{ $.Values.clusterK8s.server | quote }}
   sourceRepos:
-  - {{ .Values.clusterK8s.source | quote }}
+  - {{ $.Values.clusterK8s.source | quote }}
