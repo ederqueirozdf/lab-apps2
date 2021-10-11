@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: List
 items:
-{{- range .Values.argocd.apps }}
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
     namespace: {{ $.Values.argocd.namespace }}
+{{- range .Values.argocd.apps }}  
 {{- if .finalizers }}
     finalizers:
   {{- range .finalizers }}
