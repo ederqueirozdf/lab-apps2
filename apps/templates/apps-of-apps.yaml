@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: List
 items:
-{{- range $.Values.argocd.apps }}
+{{- range .Values.argocd.apps }}
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
-    name: {{ $.Values.argocd.apps.name }}
+    name: {{ $.Values.clusterK8s.name }}
     namespace: {{ $.Values.argocd.namespace }}
 {{- if .finalizers }}
     finalizers:

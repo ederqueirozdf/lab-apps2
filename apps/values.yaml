@@ -2,7 +2,9 @@ clusterK8s:
   name: "k8s-lab"
   server: https://kubernetes.default.svc
   source: https://github.com/ederqueirozdf/lab-apps2.git
- 
+  extraApi: 
+    - namespace: "*"
+      server: https://kubernetes.default.svc  
 
 argocd:
   namespace: argocd-2
