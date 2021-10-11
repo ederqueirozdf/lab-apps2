@@ -1,6 +1,5 @@
-clusterk8s:
-  name: "in-cluster"
-  server: https://kubernetes.default.svc
+clustername: "in-cluster"
+clusterserver: https://kubernetes.default.svc
 
 argocd:
   namespace: infra
