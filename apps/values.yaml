@@ -4,5 +4,5 @@ spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: https://github.com/ederqueirozdf/lab-apps.git
+    repoURL: https://github.com/ederqueirozdf/lab-apps2.git
     targetRevision: HEAD
