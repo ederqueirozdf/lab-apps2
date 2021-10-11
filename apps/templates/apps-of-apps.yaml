@@ -5,8 +5,8 @@ items:
 - apiVersion: argoproj.io/v1alpha1
   kind: Application
   metadata:
-    name: {{ .Values.appsK8s.name }}
-    namespace: {{ .Values.argocd.namespace }}
+    name: {{ $.Values.appsK8s.name }}
+    namespace: {{ $.Values.argocd.namespace }}
 {{- if .finalizers }}
     finalizers:
   {{- range .finalizers }}
@@ -14,8 +14,8 @@ items:
   {{ end }}
 {{- end }}
     annotations: 
-      cluster.repo/git: {{ .Values.source.repoURL | quote }}
-      cluster.server/name: {{ .Values.appsK8s.name | quote }}
+      cluster.repo/git: {{ $.Values.source.repoURL | quote }}
+      cluster.server/name: {{ $.Values.appsK8s.name | quote }}
 {{- if .Values.argocd.disablePrune }}
       argocd.argoproj.io/sync-options: Prune=false
 {{- end }}
@@ -25,7 +25,7 @@ items:
   {{ end }}
 {{- end }}
     labels: 
-      cluster.server/name: {{ .Values.appsK8s.name }}
+      cluster.server/name: {{ $.Values.appsK8s.name }}
 {{- if .labels }}
   {{- range .labels }}
       {{ .key }}: {{ .value -}}
