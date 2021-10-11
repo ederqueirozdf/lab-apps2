@@ -1,6 +1,8 @@
 appsK8s:
   name: "in-cluster"
   clusterserver: https://kubernetes.default.svc
+  source: https://github.com/ederqueirozdf/lab-apps2.git
+ 
 
 argocd:
   namespace: infra
