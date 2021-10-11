@@ -17,5 +17,8 @@ spec:
   destinations:
   - namespace: '*'
     server: {{ .Values.clusterK8s.server | quote }}
+{{- if .Values.clusterK8s.extraApi }}
+{{ toYaml .Values.clusterK8s.extraApi | indent 2 }}
+{{- end}}    
   sourceRepos:
   - {{ .Values.clusterK8s.source | quote }}
