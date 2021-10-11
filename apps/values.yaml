@@ -17,6 +17,7 @@ argocd:
         # - key: chave
         #   value: valor
       spec:
+        project: k8s-lab
         source:
           path: guestbook
           repoURL: https://github.com/ederqueirozdf/lab-apps2.git
@@ -42,6 +43,7 @@ argocd:
         # - key: chave
         #   value: valor
       spec:
+        project: k8s-lab
         source:
           path: thanos
           repoURL: https://github.com/ederqueirozdf/lab-apps2.git
