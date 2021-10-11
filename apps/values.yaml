@@ -30,28 +30,28 @@ argocd:
         #     prune: true
         #     selfHeal: true
 
-#####################################################################
-# ------- THANOS 
-#####################################################################
+# #####################################################################
+# # ------- THANOS 
+# #####################################################################
 
-    - name: "thanos"
-      finalizers: []
-      labels: []
-        # - key: chave
-        #   value: valor
-      annotations: []
-        # - key: chave
-        #   value: valor
-      spec:
-        project: k8s-lab
-        source:
-          path: thanos
-          repoURL: https://github.com/ederqueirozdf/lab-apps2.git
-          targetRevision: HEAD
-        destination:
-        #   namespace: infra
-          server: https://kubernetes.default.svc
-        # syncPolicy:
-        #   automated:
-        #     prune: true
-        #     selfHeal: true        
+#     - name: "thanos"
+#       finalizers: []
+#       labels: []
+#         # - key: chave
+#         #   value: valor
+#       annotations: []
+#         # - key: chave
+#         #   value: valor
+#       spec:
+#         project: k8s-lab
+#         source:
+#           path: thanos
+#           repoURL: https://github.com/ederqueirozdf/lab-apps2.git
+#           targetRevision: HEAD
+#         destination:
+#         #   namespace: infra
+#           server: https://kubernetes.default.svc
+#         # syncPolicy:
+#         #   automated:
+#         #     prune: true
+#         #     selfHeal: true        
