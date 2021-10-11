@@ -1,5 +1,5 @@
 cluster:
-  name: lab-apps
+  name: in-cluster
   server: https://kubernetes.default.svc
 
 argocd:
