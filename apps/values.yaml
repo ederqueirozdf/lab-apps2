@@ -5,7 +5,7 @@ clusterK8s:
  
 
 argocd:
-  namespace: infra
+  namespace: argocd-2
   disablePrune: false
   apps:
     - name: "guestbook2"
