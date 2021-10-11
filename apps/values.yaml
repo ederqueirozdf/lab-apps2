@@ -1,4 +1,4 @@
-cluster:
+clusterk8s:
   name: "in-cluster"
   server: https://kubernetes.default.svc
 
