@@ -16,7 +16,7 @@ items:
     annotations: 
       cluster.repo/git: {{ $.Values.appsK8s.source }}
       cluster.server/name: {{ $.Values.appsK8s.name }}
-{{- if .Values.argocd.disablePrune }}
+{{- if $.Values.argocd.disablePrune }}
       argocd.argoproj.io/sync-options: Prune=false
 {{- end }}
 {{- if .annotations }}
